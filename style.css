@@ -1,0 +1,83 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Inconsolata', monospace;
+
+}
+html, body {
+    background:#6495ED;
+    font-size:21px;
+    height:100px;
+}
+
+#todolist {
+    margin:20px;
+    padding:2rem 3rem 3rem;
+    max-width:100%;
+    background:#4169E1;
+    color:#FFF;
+}
+
+}
+#todolist .todolist-move {
+    transition: transform 1s;
+}
+#todolist li {
+    display:flex;
+    margin:0 -3rem 4px;
+    padding:1.1rem 3rem;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(255,255,255,0.1);
+}
+
+#todolist .actions {
+    flex-shrink:0;
+    padding-left:0.7em;
+}
+#todolist .label {
+    position:relative;
+    transition:opacity .2s linear;
+}
+#todolist .done .label {
+    opacity:.6;
+}
+#todolist .done .label:before {
+    content:'';
+    position:absolute;
+    top:50%;
+    left:-.5rem;
+    display:block;
+    width:0%;
+    height:1px;
+    background:#FFF;
+}
+#todolist .btn-picto {
+    border:none;
+    background:none;
+    -webkit-appearance:none;
+    color:#FFF;
+}
+
+
+form button {
+    padding:0 1.3rem;
+    border:none;
+    background:#1E90FF;
+    color:white;
+    text-transform:uppercase;
+    font-family: 'Inconsolata', monospace;
+    border:1px solid rgba(255,255,255,.3);
+    margin-left:5px;
+    cursor:pointer;
+    transition:background .2s ease-out;
+}
+form button:hover {
+    background:#1E90FF;
+}
+form input,
+form button {
+    font-family: 'Inconsolata', monospace;
+    height:3rem;
+}

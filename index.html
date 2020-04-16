@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Planificator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+<main id="todolist">
+    <h1>
+        Planificator💻
+        <span>Planificăți ziua pentru a cîștiga timp ☕️</span>
+    </h1>
+
+    <template v-if="todo.length">
+        <transition-group name="todolist" tag="ul">
+            <li v-for="item in todo" v-bind:class="item.done ? 'done' : ''" v-bind:key="item.id">
+                <span class="label">{{item.label}}</span>
+                <div class="actions">
+                    <button class="btn-picto" type="button" v-on:click="markAsDoneOrUndone(item)" v-bind:aria-label="item.done ? 'Undone' : 'Done'" v-bind:title="item.done ? 'Undone' : 'Done'">
+                        <i aria-hidden="true" class="material-icons">{{ item.done ? 'check_box' : 'check_box_outline_blank' }}</i>
+                    </button>
+                    <button class="btn-picto" type="button" v-on:click="deleteItemFromList(item)" aria-label="Delete" title="Delete">
+                        <i aria-hidden="true" class="material-icons">delete</i>
+                    </button>
+                </div>
+            </li>
+        </transition-group>
+
+    </template>
+
+    <form name="newform" v-on:submit.prevent="addItem">
+        <label for="newitem">Adaugă în listă 📌</label>
+        <input type="text" name="newitem" id="newitem" v-model="newitem">
+        <button type="submit">Adaugă ✔️</button>
+    </form>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
